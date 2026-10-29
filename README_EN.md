@@ -1,279 +1,225 @@
-# Mad Island — NPC Parts Device Complete Pack v1.0.7
+# Mad Island — NpcPartsDevice
 
-[日本語マニュアル](README.md) | [Changelog](CHANGELOG.md) | [Rights and usage terms](RIGHTS.md)
+**A mod that adds a "Body Cultivation Capsule" for displaying, duplicating, and reviving NPC corpses and body parts.**
 
-This pack adds cultivation capsules that display and duplicate NPC parts or corpses, and can create living NPC copies from eligible corpses. It contains two plugins: **NpcPartsDevice 1.0.7**, which integrates the device features, and **CorpseCollector 0.3.0**, which adds corpse collection for selected NPCs.
+[日本語](README.md) | [Download](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/latest) | [Changelog](CHANGELOG.md) | [Terms of Use](RIGHTS.md)
 
-**The user has verified insertion, duplication, revival, and save restoration for a normally recruited, deceased NPC ID17 in v1.0.3. This does not certify every NPC, special state, or save slot.** The author is yukarigohan. See the terms below and RIGHTS.md for use, modification, and redistribution.
+**Version:** v1.0.7  
+**Author:** yukarigohan
 
-v1.0.7 fixes revival rejection caused by deceased companions' AI types, aligns ordinary ID9 display scale with the source NPC, and fixes its whole-display X offset at the user-confirmed -0.100. The temporary F10 tuning UI has been removed. Belly XY offsets, Daruma display, Y/Z depth, costs, and save formats are unchanged. The user has confirmed v1.0.7 in game.
+NpcPartsDevice adds a new placeable device, the **Body Cultivation Capsule**, to Mad Island. You can display NPC corpses or body parts inside it and duplicate them using materials. It also offers **Revival Duplication**, which creates a living NPC from an eligible dead NPC.
 
-## Download
+The included **CorpseCollector** plugin lets you pick up and carry certain NPC corpses that normally cannot be collected as inventory items.
 
-Download the distribution ZIP from [GitHub Releases](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/latest).
+## Features
 
-## Author and usage terms
+- **NPC display:** Show corpses and body parts inside a capsule
+- **Normal duplication:** Create copies of corpses or body parts using materials
+- **Revival duplication:** Generate living NPCs from eligible dead NPCs
+- **Corpse collection:** Pick up the corpses of certain NPCs as items
+- **Special appearances:** Display supported pregnancy, missing-limb, and limb-removal (“daruma”) states
+- **Batch duplication:** Produce 1–5 items or NPCs at a time
+- **Four capsule sizes:** Small, normal, large, and extra-large
 
-Author: yukarigohan (NpcPartsDevice v1.0.7)
+## 1. Installation
 
-The following custom terms apply to the authored mods. No MIT, GPL, or other standard license is applied.
+### Requirements
 
-- Free use of the mods is permitted.
-- Modification and feature additions for personal use are permitted.
-- The person who makes a modified version may use that version personally.
-- Unauthorized redistribution of either original or modified versions is prohibited.
-- Redistribution of all or any part of the DLLs or mods requires prior permission from the author, yukarigohan.
-- Sharing links to the official distribution page is permitted.
+- Windows version of Mad Island
+- **BepInEx 5.4.23.5 (BepInEx 5 series)**
+- [This mod's release ZIP](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/latest)
 
-These permissions apply only to the authored portions. Rights in the game and third-party assets or code belong to their respective rights holders; this notice does not claim that yukarigohan owns those rights.
-
-## 1. Requirements and files
-
-- Windows Mad Island, Unity Mono. Reference environment: Steam build **25095856**, Unity **2021.3.45f2**, **BepInEx 5.4.23.5**.
-- A legitimate game installation and compatible BepInEx 5 / Harmony environment are required separately. This is not a BepInEx 6 or IL2CPP build.
-- The plugins validate game/dependency compatibility and may stop after a game update or when an incompatible DLL is present.
-- No game, Unity, Spine, BepInEx, or Harmony binaries are bundled. No extracted game images, saves, or configuration files are included. CheatMenu is not required.
-
-```text
-README.md
-README_EN.md
-CHANGELOG.md
-RIGHTS.md
-BepInEx/
-  plugins/
-    NpcPartsDevice/NpcPartsDevice.dll
-    CorpseCollector/CorpseCollector.dll
-```
-
-| Plugin | Version | Plugin GUID |
-|---|---|---|
-| NpcPartsDevice | 1.0.7 | `local.madisland.npcpartsdevice` |
-| CorpseCollector | 0.3.0 | `local.madisland.corpsecollector` |
-
-SHA256:
-
-```text
-NpcPartsDevice.dll
-afc36edd7eaa6d00cc2429eac0da51b11eb7e679ee9a1e492b25697940a020e6
-
-CorpseCollector.dll
-f742231867eec39aa7a6fe0cac8af41a21a18544fb2b6902b3fcc5219a667e9b
-```
-
-NpcPartsDevice requires the included CorpseCollector even if you do not use its extra corpse types. Internal log messages may retain legacy module names or versions; they do not require separate legacy DLLs.
-
-## 2. Installation and updates
-
-1. Exit the game.
-2. Back up all saves, configuration files, and the current related plugins. See the backup instructions below.
-3. With BepInEx 5.4.23.5 already installed, extract the archive's `BepInEx` folder into the game folder containing `Mad Island.exe`. Avoid creating an extra nested `plugins` directory.
-4. When updating an integrated installation, keep the old main DLL outside `plugins`, then replace it. If CorpseCollector already matches the hash above, it does not need replacing. Do not reset existing configuration files unnecessarily.
-5. Start the game manually. Check `BepInEx/LogOutput.log` for `[NpcPartsDevice Integrated] ready 1.0.7` and CorpseCollector loading.
-6. First check opening a device, inserting a source, and withdrawing it on a backed-up save. If you see `inactive`, dependency errors, or a save refusal, exit without continuing to overwrite saves.
-
-### Migrating from separate plugins
-
-Move the following old DLLs **outside the entire plugins directory** before installing this pack. Moving them to another subdirectory inside `plugins` does not disable them.
-
-- The old NpcPartsDevice main DLL
-- NpcPartsDeviceBridge, ModItemJapanese, NpcPartsDeviceUi
-- NpcPartsDeviceSkin, NpcPartsDeviceIcons, NpcPartsDeviceAnimation
-- NpcPartsDeviceNineSlots, NpcPartsDeviceCosts, NpcPartsDeviceRevive
-
-Do not run BellyTuner alongside the integrated version; the final offsets are built in. Development/diagnostic plugins and third-party mods that depend on the old plugin GUIDs may also be incompatible. Duplicate legacy modules cause the integrated version to stop.
-
-Existing item keys, the native 33-slot XML format, and legacy configuration filenames are retained. Keep the complete old DLL set and matching saves/configuration for rollback. Do not mix the integrated and separate plugin sets.
-
-## 3. Crafting and placing devices
-
-Four cultivation capsule recipes are added using Cassie's crafting category that contains the standard artificial-human capsule, `capsule_01`. They reuse its material definitions. The source recipe and its normal progression requirements must be available.
-
-| Size | Item key | Icon label |
-|---|---|---|
-| Small | `parts_duplicator_small_01` | 小 |
-| Normal | `parts_duplicator_01` | 普 |
-| Large | `parts_duplicator_large_01` | 大 |
-| Extra large | `parts_duplicator_xlarge_01` | 超 |
-
-Craft, place, and open the device through normal equipment interaction. Start outdoors with adequate free space. Multiple devices keep separate contents and displays. Large subjects may extend outside the small capsule.
-
-## 4. Nine visible slots
-
-The upper row is **source → flesh → milk → life orb**, left to right. The lower row contains five output slots.
-
-| Purpose | Internal saved slot | Accepted item |
-|---|---:|---|
-| Source | 0 | One eligible corpse or NPC part |
-| Flesh | 1 | `food_flesh_01` |
-| Milk | 7 | `food_milk_01` |
-| Life orb | 8 | `orb_life_01` |
-| Five outputs | 2–6 | Results of ordinary duplication |
-
-Use the native inventory click/drag controls. Some bulk-transfer and scrolling operations are restricted while this device UI is open. The milk and orb slots reject other items.
-
-Nine visible slots still use the **native 33-slot XML storage format**. Do not use internal slots 9–32 as additional free storage. Unexpected legacy contents trigger a withdrawal-only view: recover all displayed contents before continuing. The mod does not silently delete leftovers or repair every historical save generation.
-
-## 5. Duplication, revival, and costs
-
-| Operation, per item/NPC | Flesh | Milk | Life orb | Result |
-|---|---:|---:|---:|---|
-| NPC part duplication | 50 | 10 | 0 | Device output slot |
-| Corpse duplication | 100 | 50 | 0 | Device output slot |
-| Revival duplication | 300 | 100 | 10 | Living NPC near the device |
-
-Choose **1–5** copies. Costs scale with the selected quantity: five revivals require 1500 flesh, 500 milk, and 50 orbs. Each dedicated material slot must hold the full required amount; native stack limits still apply. Ordinary duplication never consumes orbs. **The source corpse or part is retained.**
+The reference game version is Steam build **25095856**. Compatibility with other game versions, including later game updates, is not guaranteed. This mod is not for BepInEx 6 or IL2CPP.
 
 ### Steps
 
-1. Insert one eligible source. Revival requires a corpse; a body part alone is not enough.
-2. Add materials and empty all five output slots. Revival also requires empty outputs as a safety condition, although living NPCs are not put into those slots.
-3. Select quantity 1–5. Use `複製` for ordinary duplication or `蘇生複製` for revival. The UI displays material requirements/shortages. Many added controls remain Japanese; this English manual does not translate the UI.
-4. The native joining effect, FX84 and sound143, runs once regardless of quantity. Publication occurs after the native approximately 4.4-second routine. Exact visual-effect completion timing is not guaranteed.
-5. Collect ordinary copies from the device; revived NPCs appear nearby.
+1. Close the game and back up your save data as a precaution.
+2. Download the ZIP from [Releases](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/latest) and extract it.
+3. Copy the ZIP's `BepInEx` folder into your game directory, alongside `Mad Island.exe`.
+4. Start the game.
 
-Materials and results are not published during the effect. Closing the UI, switching devices, starting a save, changing scenes, or invalidating the request cancels without consumption. Repeated clicks are guarded, and conditions are checked again before commit. Batches use all-success/all-cancel behavior. Concurrent effects on multiple devices are not supported.
+Your folders should look like this:
 
-Some legacy item descriptions still mention 50 flesh. The table above and current operation UI describe the integrated costs.
+```text
+Mad Island/
+├─ Mad Island.exe
+└─ BepInEx/
+   └─ plugins/
+      ├─ NpcPartsDevice/
+      │  └─ NpcPartsDevice.dll
+      └─ CorpseCollector/
+         └─ CorpseCollector.dll
+```
 
-## 6. Eligible sources and admission limits
+**Both DLLs are required.** Do not remove `CorpseCollector.dll`, even if you do not plan to use corpse collection. Other mods such as CheatMenu are not required.
 
-Parts are checked against native part/species/corpse definitions. A key beginning with `parts_` is not sufficient by itself. Ordinary corpse duplication and revival have different supported ranges.
+**Upgrading from older separate plugins:** Move the old, pre-integration NpcPartsDevice-related DLLs out of the `plugins` directory before installing this package. This includes the old NpcPartsDevice core, Bridge, Ui, Skin, Icons, Animation, NineSlots, Costs, Revive, and ModItemJapanese plugins. Do not load the old plugins together with the integrated version.
 
-Humanoid corpse insertion checks death, item mapping, and data required for native saving. Independent corpse data does not need an original world actor or a matching friend-list entry. Ordinary belongings and relationship records can remain on the original. Admission does not guarantee that the additional duplication/revival conditions will pass.
+## 2. Crafting and placing the capsule
 
-**Important native-save exception:** corpses with `friendID >= 10` are restored as references to registered NPCs. If that registration is missing or conflicting, native loading can clear the corpse slot or resolve the wrong actor. This mod refuses storage/restoration in that case. It does not rewrite the original ID or invent a missing original NPC.
+The Body Cultivation Capsule is added to **Cassie's crafting category**. It uses the same crafting category and material recipe as the original **Artificial Human Manufacturing Capsule**. Depending on game progress, the recipe may not yet be available.
 
-Living NPCs, malformed required data, unsupported body/save structures, nested NPC/part belongings, and unsupported external apparel/dialogue data are rejected. Other existing corpse types retain their legacy compatibility limits.
+| Size | Suggested use |
+|---|---|
+| Small | Smaller NPCs and body parts |
+| Normal | Average-sized NPCs |
+| Large | Larger NPCs |
+| Extra-large | Very large NPCs |
 
-## 7. Humanoid revival list
+Craft and place a capsule, then interact with it as you would with other equipment. You can place multiple capsules. A large NPC's model may extend outside a small capsule.
 
-The implementation lists **39 NPC IDs** below. Names are the Japanese reference names; game language and individual names may differ. **Inclusion is not certification of every individual or special state.**
+## 3. Using the capsule
 
-| ID | NPC name (Japanese reference) |
-|---:|---|
-| 5 | レイカ |
-| 6 | ナミ |
-| 9 | 乙女 |
-| 10 | 原住民 |
-| 11 | 大柄原住民 |
-| 12 | 小柄原住民 |
-| 14 | 男の子原住民 |
-| 15 | 女原住民 |
-| 16 | 女の子原住民 |
-| 17 | 女大柄原住民 |
-| 18 | 原住民老爺 |
-| 19 | 原住民老婆 |
-| 42 | マミー |
-| 43 | ダディー |
-| 44 | 地底の女 |
-| 72 | 太った青年 |
-| 73 | 華奢な乙女 |
-| 85 | 試作タイプA |
-| 86 | 試作タイプB |
-| 87 | 試作タイプC |
-| 89 | 青年 |
-| 90 | 姉御原住民 |
-| 91 | 兄御原住民 |
-| 110 | ジャイアント |
-| 113 | キャシー |
-| 114 | シノ |
-| 115 | サリー |
-| 116 | メリー |
-| 118 | ミラ |
-| 140 | 大柄女の子原住民 |
-| 141 | 大柄男の子原住民 |
-| 142 | 地底の女の子 |
-| 143 | 地底の男の子 |
-| 144 | 娘 |
-| 145 | 息子 |
-| 162 | カナ |
-| 163 | ルル |
-| 180 | 大柄青年 |
-| 181 | 地底青年 |
+Each capsule has **nine visible slots**: one source slot, three material slots, and five output slots.
 
-Animals, plants, and mermaids are not revival targets. Being collectable through CorpseCollector does not imply revival support.
+| Slot | What goes here |
+|---|---|
+| Source | One eligible NPC corpse or body part |
+| Flesh | Flesh used for duplication |
+| Milk | Milk used for duplication |
+| Life Orb | Orbs required for revival duplication |
+| Output ×5 | Items produced through normal duplication |
 
-### Originals and new NPCs
+### Displaying a corpse or body part
 
-- The original corpse, belongings, equipment, relationships, and original friend registration remain intact.
-- Copies are independent. Reviving a registered deceased friend uses the native friend-management path and assigns a different new friendID to each copy.
-- Unregistered NPCs retain the supported original faction/AI path; they are not all forcibly made companions. Unverifiable affiliation is rejected.
-- New living NPCs start at maximum HP, initially idle, with empty inventory and equipment. Social relationships are initialized separately for the new individual. Pregnancy/father data is handled independently and is not cleared by this policy.
-- All 1–5 NPCs and nonoverlapping safe locations are prepared before commit. Search expands when needed; no suitable space means cancellation without material consumption.
-- A failed batch cancels its new NPCs/registrations/material changes. If cancellation itself reports an error, do not keep clicking or overwriting saves; use the matching backup.
+1. Open the capsule.
+2. Put an eligible corpse or body part in the **Source** slot.
+3. The model is displayed inside the capsule.
 
-## 8. Pregnancy, missing limbs, and Daruma displays
+**Displaying something does not consume duplication materials.**
 
-Supported pregnancy data includes the father reference/species code and progress value, copied independently. The mod does not reset progress or invent fetal data. Supported left/right arm and leg loss, multiple missing limbs, and corresponding visuals are carried over. Combined pregnancy and missing-limb states are implemented. Fatal neck/torso loss, unresolved father data, and unrestorable body visuals cannot be revived.
+### Normal duplication
 
-Daruma is identified using the native state data, not inferred merely from four missing limbs. Dedicated-model candidates are **9, 14, 15, 16, 17, 44, 90, 140, 142, 143, 144, 145**. Native Daruma-machine models and appearance data are reused. The special display pose applies only inside the capsule; revived NPCs keep missing limbs but use normal AI/movement rather than being fixed to a chair.
+1. Place a corpse or body part in the Source slot.
+2. Put the required Flesh and Milk into the material slots.
+3. Empty all five output slots.
+4. Choose a quantity from **1 to 5**, then press **Duplicate** (「複製」).
+5. After the animation finishes, collect the resulting items from the output slots.
 
-The current pregnancy-belly selection uses existing pregnancy data: father information present and progress value0. If a dedicated belly is absent, a compatible milking-machine belly is independently reproduced for the exhibit. IDs9/17/44/140 use that donor path, 142/144 use an independent native belly, and ID15 uses its existing native belly. Face, hair, skin, and body appearance are intended to be retained; not every candidate appearance is certified.
+The original corpse or body part is not consumed.
 
-Internal overlap is **breasts → belly → legs**, front to back. ID9's known Mosaic part is removed under limited conditions. ID44 has special-appearance support. IDs44/144 reuse the existing native Head-plane depth alignment to keep the exhibit behind the capsule glass.
+### Revival duplication
 
-Built-in belly offsets, in the established bone-length/scale ratio units:
+1. Place an **eligible dead NPC's corpse** in the Source slot. A body part alone cannot be revived.
+2. Add Flesh, Milk, and Life Orbs, then empty all five output slots.
+3. Select **1 to 5** NPCs and press **Revival Duplication** (「蘇生複製」).
+4. After the animation, living NPCs appear near the capsule.
 
-| ID | X | Y |
-|---:|---:|---:|
-| 9 | -0.11 | 0.6938 |
-| 17 | 0 | 0.5006 |
-| 44 | -0.1 | 0.4375 |
-| 140 | 0.02 | 0.2628 |
-| 142 | 0 | 0 |
-| 144 | 0 | 0 |
+Revived NPCs are separate individuals from the originals. If the original was a deceased companion with a valid registration, the new NPC is registered as a new companion. **NPCs that were not companions do not automatically become companions.** Newly generated NPCs have empty inventories and no equipment.
 
-BellyTuner and its JSON are not required. Only the belly is adjusted, and reinserting a corpse does not accumulate offsets.
+**Note:** Revival may be refused if the NPC's state, companion registration, or saved data does not meet the requirements. Try using the device outdoors or in another spacious location.
 
-## 9. Other integrated features
+### Required materials
 
-- **Exterior tint:** all four sizes and multiple instances use top `#17091F`, base `#222A36`, and upper/lower lamps `#7DFF2A`. Tint multiplication does not guarantee exact screen colors. Native glass RGB/alpha and lamp flashing remain unchanged.
-- **Icons:** native game sprites are read at runtime, recolored by part, and labeled with the four size characters. Shared source sprites/textures are not overwritten; extracted game images are not distributed.
-- **Compatibility helpers:** cover selected extra corpses, ID44's class1 appearance, and clone inventory initialization. ID71 has existing display-depth alignment; normal-size IDs5/71/118 have existing placement corrections.
-- **Japanese text:** adds device/extra-corpse names/descriptions in Japanese mode and corrects device-as-body-part labeling. Individual names and item keys are retained. No full English UI translation is added.
-- **Special exhibits:** ID110 has an available hair-display selection in supported conditions. It does not change the original/output and is not saved across scenes.
-- **Development give button:** disabled by default, unnecessary for normal play, and still restricted to Save01.
+| Action (per item or NPC) | Flesh | Milk | Life Orbs |
+|---|---:|---:|---:|
+| NPC body-part duplication | 50 | 10 | Not required |
+| NPC corpse duplication | 100 | 50 | Not required |
+| Revival duplication | 300 | 100 | 10 |
 
-## 10. Using CorpseCollector 0.3.0
+Material costs scale with the quantity selected. For example, duplicating three corpses requires 300 Flesh and 150 Milk. You can also check the required amounts in the in-game interface.
 
-Additional collection targets are **5 Reika, 6 Nami, 71 Mermaid, 113 Cassie, 116 Merry, 118 Mira/Death girl, and 121 Ent queen**. Item keys are `npc_corpsecollector_<ID>`, one body per slot.
+## 4. NPCs confirmed in-game
 
-1. Interact normally with the deceased target.
-2. Use the native carry action in its corpse interaction panel. Ensure sufficient carrying capacity and inventory space.
-3. Use normal NPC-item placement controls to place the collected corpse again. Ordinary belongings, equipment, and individual data follow the native save path.
+This table includes **only NPC IDs for which the author has reported successful in-game tests**.
 
-Living/fainted targets, insufficient capacity, and unsafe nested contents are refused. Dead IDs118/121 have attack/associated processing stopped before collection. The plugin does not kill living NPCs or add collection for every NPC type.
+**✅ = Confirmed in-game / — = Not tested (does not necessarily mean unsupported)**
 
-**Mermaid food conversion** is a separate action on the land corpse panel, labeled `食材化`. Empty the corpse's belongings/equipment and reserve space for four fish-meat items. Conversion consumes the corpse and yields four `fish_meat_02`. It is not a T-key action on the inventory item. Collecting plant/mermaid corpses does not add them to the revival list. All seven targets and every food-conversion condition have not been certified in this release's runtime confirmation.
+| NPC ID | NPC name | Display | Normal duplication | Revival duplication | Corpse collection |
+|---:|---|:---:|:---:|:---:|:---:|
+| 5 | Reika (レイカ) | ✅ | ✅ | ✅ | ✅ |
+| 6 | Nami (ナミ) | ✅ | ✅ | ✅ | ✅ |
+| 9 | Maiden (乙女) | ✅ | ✅ | ✅ | — |
+| 10 | Native (原住民) | ✅ | ✅ | ✅ | — |
+| 15 | Female Native (女原住民) | ✅ | ✅ | ✅ | — |
+| 16 | Native Girl (女の子原住民) | ✅ | ✅ | ✅ | — |
+| 17 | Large Female Native (女大柄原住民) | ✅ | ✅ | ✅ | — |
+| 44 | Underground Woman (地底の女) | ✅ | ✅ | ✅ | — |
+| 71 | Mermaid (人魚) | ✅ | ✅ | ✅ | ✅ |
+| 90 | Native Big Sister (姉御原住民) | ✅ | ✅ | ✅ | — |
+| 110 | Giant (ジャイアント) | ✅ | ✅ | ✅ | ✅ |
+| 113 | Cassie (キャシー) | ✅ | ✅ | ✅ | ✅ |
+| 114 | Shino (シノ) | ✅ | ✅ | ✅ | ✅ |
+| 115 | Sally (サリー) | ✅ | ✅ | ✅ | ✅ |
+| 116 | Mary (メリー) | ✅ | ✅ | ✅ | ✅ |
+| 118 | Mira (ミラ) | ✅ | ✅ | ✅ | ✅ |
+| 121 | Ent Queen (エントクイーン) | — | — | — | ✅ |
+| 140 | Large Native Girl (大柄女の子原住民) | ✅ | ✅ | ✅ | — |
+| 142 | Underground Girl (地底の女の子) | ✅ | ✅ | ✅ | — |
+| 144 | Daughter (娘) | ✅ | ✅ | ✅ | — |
+| 162 | Kana (カナ) | ✅ | ✅ | ✅ | ✅ |
+| 163 | Lulu (ルル) | ✅ | ✅ | ✅ | ✅ |
 
-## 11. Saving and backups
+**In-game confirmed: 21 NPC IDs for each of display, normal duplication, and revival duplication; 12 NPC IDs for corpse collection.**
 
-Regular slots **1–19** use the game's native slot table; loading native backup slot0 is also implemented. This is not a claim that every slot was tested. Direct external-directory/Workshop loading is unsupported and blocks saving/duplication.
+These results confirm that the listed features succeeded for the listed NPC IDs in specific tests. They **do not guarantee every special state**, such as pregnancy or missing limbs, or compatibility after a game update.
 
-Device contents belong to each world's native Build/Chest data; no new custom save file is introduced. A new game does not inherit the previous loaded slot number. The normal save UI selects the destination. Loading, returning to title, and changing worlds clear pending work and temporary displays. Unknown destinations, failed loads, or failed cleanup block saving.
+NPC names are descriptive translations of the Japanese names and may differ from the official English localization.
 
-**With the game closed, copy these together outside the game folder:**
+## 5. Corpse collection (CorpseCollector)
 
-- The entire `Mad Island_Data/StreamingAssets/XML/` directory: keep all slot XML, images, and related files from the same point in time.
-- `BepInEx/config/` and the current related DLL set.
-- If you use another installation or synchronization setup, confirm the actual active save location. Avoid synchronization overwriting a restored backup.
+This plugin allows you to carry certain corpses that normally cannot be picked up as corpse items. See the table above for NPC IDs confirmed in-game.
 
-Registered revived companions use native friend saving. Persistence of unregistered revived NPCs across save/load remains unguaranteed. There is no custom store that recreates deceased/deleted actors automatically. Reviving again from the retained corpse is a new operation with a new material cost.
+1. Interact with the dead body of an eligible NPC.
+2. Use the carry/collect option in the corpse interaction panel.
+3. Keep the collected corpse in your inventory and use it for display or duplication in a compatible capsule.
 
-## 12. Known limits and troubleshooting
+You need sufficient inventory space. Living or unconscious NPCs cannot be collected as corpses.
 
-- A listed NPC may still fail state, Prefab, pregnancy/limb, or external-reference checks. Revival inside houses has restrictions; use an outdoor location first.
-- Missing positive-ID registrations, unsupported nested inventory, and external save extensions are not forcibly repaired. Do not manually rewrite IDs to bypass a refusal.
-- Game updates, all third-party mod combinations, and every slot/state combination are not guaranteed. Mods that search for separate legacy plugin GUIDs may be incompatible.
-- For loading failures, check duplicate DLLs, BepInEx version, the included CorpseCollector version, and old `General/Enabled=false` settings. Back up configuration before editing it and restart afterward.
-- If saving is refused or rollback/display errors persist, stop overwriting saves and restore matching backups. Review personal information and file paths before sharing logs.
+### Processing a mermaid corpse into food
 
-This packaging task did not modify code, rebuild plugins, or rerun functionality tests. It checks the established DLL metadata/hashes and archive contents. The v1.0.7 runtime-confirmed case is the ID17 case stated at the top; no additional runtime certification is implied.
+Interact with a mermaid corpse lying on the ground and choose the separate **Process into Food** (「食材化」) action to consume the corpse and receive **four pieces of fish meat**. Make room in your inventory first. This is separate from corpse collection.
 
-## 13. Uninstalling and rolling back
+## 6. Special appearances
 
-Withdraw device contents first. Do not overwrite a save containing mod-specific devices or corpse keys while the required plugins are absent. Keep a pre-installation save available.
+For some supported NPCs, the mod can display and duplicate certain pregnancy, missing-limb, or limb-removal (“daruma”) states. Some NPC/state combinations cannot be reproduced or revived.
 
-With the game closed, move both DLLs outside `plugins`. Removing DLLs does not automatically remove custom items or spawned NPCs. For rollback, restore the matching old DLLs, configuration, and save set together. If returning to the old separate plugins, do not mix them with the integrated main DLL.
+## 7. Saves and precautions
 
-Configuration files may be retained in backup. This pack does not automatically delete old saves or settings.
+The capsule uses the game's standard save format. It is designed to handle normal save slots **1–19**, but this does not mean that every slot has been tested in-game.
+
+Before installing, updating, or removing the mod, close the game and **back up your save data and configuration files**. Be especially careful if a capsule contains corpses or materials, or if you have revived NPCs in your save.
+
+If you encounter repeated save/load errors or unusual capsule behavior, avoid repeatedly overwriting the save. Consider restoring a backup instead.
+
+## 8. Frequently asked questions
+
+**Q. Why can't I find the capsule in the crafting menu?**  
+Check Cassie's crafting category and whether you meet the requirements for the original Artificial Human Manufacturing Capsule.
+
+**Q. Why can't I put this NPC in the capsule?**  
+Check whether the NPC is supported and whether the corpse or body part contains the necessary character data. Even a tested NPC ID may fail in certain special states.
+
+**Q. Why are Duplicate or Revival Duplication unavailable?**  
+Check the source item, required materials, all five empty output slots, selected quantity, and—when reviving—the NPC's death state and companion registration.
+
+**Q. Why does a duplicated or revived NPC have no items?**  
+This is intentional. Newly generated NPCs do not inherit the original's inventory or equipment.
+
+**Q. Why doesn't the mod load?**  
+Check that BepInEx 5 is installed, both DLLs are in the correct folders, and no older separate plugins are loaded alongside the integrated version. A game update may also cause incompatibility.
+
+## 9. Uninstallation
+
+1. Close the game.
+2. If possible, remove all corpses, materials, and finished items from your capsules, then back up your save.
+3. Move `BepInEx/plugins/NpcPartsDevice` and `BepInEx/plugins/CorpseCollector` out of the `plugins` directory.
+
+Saves containing mod-specific items or generated NPCs may no longer work correctly after removing the mod. Restore a save from before installation if necessary.
+
+## 10. Terms of use
+
+**Author: yukarigohan**
+
+- Free use: **Permitted**
+- Modifications and feature additions for personal use: **Permitted**
+- Private use of your modified copy: **Permitted**
+- Unauthorized redistribution of the original or modified mod: **Prohibited**
+- Redistribution requires prior permission from the author
+- Sharing links to the official release page: **Permitted**
+
+See [RIGHTS.md](RIGHTS.md) for the full terms. This is an unofficial Mad Island mod. Rights to the game itself and third-party assets or code remain with their respective owners.
+
+---
+
+[Download](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases) | [Changelog](CHANGELOG.md)
