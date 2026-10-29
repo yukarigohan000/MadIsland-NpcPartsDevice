@@ -1,10 +1,12 @@
 # 権利・利用条件
 
-本パックは、このプロジェクトで作成した自作のNpcPartsDevice1.0.7とCorpseCollector0.3.0を収録します。他作者のMOD、ゲーム本体コード／DLL、デコンパイル資料、抽出画像・モデル・音声、Unity・Spine・BepInEx・HarmonyのDLLは同梱しません。ゲーム名・前提ソフト等の権利は各権利者に帰属します。
+『Mad Island』およびゲーム内のキャラクター・画像・音声等の権利は、開発元のいーめいどぷらす様および各権利者に帰属します。NpcPartsDeviceは個人制作の非公式MODであり、公式コンテンツではありません。MOD独自制作部分には既存のRIGHTS.mdの利用条件を適用します。
+
+本パックは、このプロジェクトで作成した自作のNpcPartsDevice1.0.10とCorpseCollector0.3.0を収録します。他作者のMOD、ゲーム本体コード／DLL、デコンパイル資料、抽出画像・モデル・音声、Unity・Spine・BepInEx・HarmonyのDLLは同梱しません。ゲーム名・前提ソフト等の権利は各権利者に帰属します。
 
 ゲームのモデル・アイコン・腹部素材等は、利用者の正規ゲーム内アセットを実行時に参照します。自作の位置補正・部位分類・描画処理は含みますが、抽出ゲーム画像そのものは配布しません。
 
-作者：yukarigohan（NpcPartsDevice v1.0.7）
+作者：yukarigohan（NpcPartsDevice v1.0.10）
 
 以下は自作MODに適用する独自の利用条件です。MIT・GPL等のライセンスは適用していません。
 
@@ -27,11 +29,13 @@ DLLのデバッグ参照を除去するとハッシュが変わるため、こ�
 
 # Rights and usage terms
 
-This pack contains the project's own NpcPartsDevice1.0.7 and CorpseCollector0.3.0 plugins. It does not bundle third-party mods; game source/binaries or decompiled material; extracted images, models, or audio; or Unity, Spine, BepInEx, or Harmony binaries. Respective owners retain their rights in the game and prerequisites.
+Rights to Mad Island and its in-game characters, images, audio, and other content belong to its developer, Emade Plus (いーめいどぷらす), and the respective rights holders. NpcPartsDevice is an independently created, unofficial mod and is not official content. The existing terms in RIGHTS.md apply to the mod's independently authored portions.
+
+This pack contains the project's own NpcPartsDevice1.0.10 and CorpseCollector0.3.0 plugins. It does not bundle third-party mods; game source/binaries or decompiled material; extracted images, models, or audio; or Unity, Spine, BepInEx, or Harmony binaries. Respective owners retain their rights in the game and prerequisites.
 
 Game models, icons, and belly assets are referenced from the user's legitimate game at runtime. Authored placement, region-classification, and rendering code is included; extracted game images themselves are not distributed.
 
-Author: yukarigohan (NpcPartsDevice v1.0.7)
+Author: yukarigohan (NpcPartsDevice v1.0.10)
 
 The following custom terms apply to the authored mods. No MIT, GPL, or other standard license is applied.
 

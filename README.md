@@ -2,14 +2,26 @@
 
 **NPCの死体・パーツを展示、複製、蘇生できる「肉体培養槽」を追加するMOD**
 
-[English](README_EN.md) | [ダウンロード](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/latest) | [更新履歴](CHANGELOG.md) | [利用条件](RIGHTS.md)
+[English](README_EN.md) | [ダウンロード](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.10) | [更新履歴](CHANGELOG.md) | [利用条件](RIGHTS.md)
 
-**バージョン：** v1.0.7  
+**バージョン：** v1.0.10  
 **作者：** yukarigohan
 
 NpcPartsDeviceは、Mad Islandに新しい設備「肉体培養槽」を追加するMODです。NPCの死体や身体パーツを装置内に展示し、素材を使って複製できます。また、条件を満たす死亡NPCから生きたNPCを生成する「蘇生複製」にも対応しています。
 
 同梱の **CorpseCollector** は、通常では死体アイテムを回収できない一部NPCを持ち運べるようにします。
+
+## v1.0.10 更新内容
+
+- ID110・114の部位パーツで、複製アニメーション終了後に完成品が生成されない問題を修正しました。
+- ゲーム標準のデータ復元処理が人格情報を変更して複製検証に失敗するケースに対応しました。
+
+### v1.0.9からの部位展示改善
+
+- 通常・大型・超大型の部位パーツ表示を修正し、元のサイズ・形状を保持する処理を改善しました。
+- 小型で使用していた正常な補正処理を対応する部位展示へ共通適用し、ガラスとの前後関係を改善しました。
+
+今回の実機確認は上記の修正対象です。従来の確認済み一覧（展示・通常複製・蘇生：21 ID、死体回収：12 ID）の全機能を再検証したものではありません。
 
 ## 主な機能
 
@@ -27,14 +39,14 @@ NpcPartsDeviceは、Mad Islandに新しい設備「肉体培養槽」を追加�
 
 - Windows版 Mad Island
 - **BepInEx 5.4.23.5（BepInEx 5系）**
-- [本MODの配布ZIP](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/latest)
+- [本MODの配布ZIP](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.10)
 
 確認基準のゲームは Steam build **25095856** です。ゲームの更新後など、異なる環境での動作は保証できません。BepInEx 6／IL2CPP向けではありません。
 
 ### インストール
 
 1. ゲームを終了し、念のためセーブデータをバックアップします。
-2. [Releases](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/latest) から配布ZIPをダウンロードして展開します。
+2. [Releases](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.10) から配布ZIPをダウンロードして展開します。
 3. ZIP内の `BepInEx` フォルダーを、`Mad Island.exe` があるゲームフォルダーにコピーします。
 4. ゲームを起動します。
 
@@ -54,6 +66,10 @@ Mad Island/
 **DLLは2つとも必要です。** 死体回収機能を使わない場合も `CorpseCollector.dll` は外さないでください。CheatMenuなどの別MODは必須ではありません。
 
 **旧個別版から更新する場合：** 以前のNpcPartsDevice本体・Bridge・Ui・Skin・Icons・Animation・NineSlots・Costs・Revive・ModItemJapaneseなど、統合前の関連DLLは `plugins` の外に退避してください。旧版と統合版を同時に読み込ませないでください。
+
+### 既存バージョンからの更新
+
+ゲームを終了し、旧DLLを保管してから、`BepInEx/plugins/NpcPartsDevice/NpcPartsDevice.dll`を本ZIPのv1.0.10で置き換えてください。別フォルダーに旧NpcPartsDevice.dllを残して二重に読み込ませないでください。同梱のCorpseCollector v0.3.0は変更していないため、同版を導入済みならそのまま使用できます。2本構成は引き続き必要です。
 
 ## 2. 肉体培養槽の入手・設置
 
@@ -216,8 +232,8 @@ MOD専用アイテムや生成NPCが残るセーブは、MODを外すと正常�
 - 再配布には作者の事前許可が必要
 - 公式配布ページへのリンク共有：許可
 
-詳細は [RIGHTS.md](RIGHTS.md) を参照してください。本MODはMad Islandの非公式MODです。ゲーム本体と第三者の素材・コードに関する権利は各権利者に帰属します。
+詳細は [RIGHTS.md](RIGHTS.md) を参照してください。 『Mad Island』およびゲーム内のキャラクター・画像・音声等の権利は、開発元のいーめいどぷらす様および各権利者に帰属します。NpcPartsDeviceは個人制作の非公式MODであり、公式コンテンツではありません。MOD独自制作部分には既存のRIGHTS.mdの利用条件を適用します。
 
 ---
 
-[ダウンロード](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases) | [更新履歴](CHANGELOG.md)
+[ダウンロード](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.10) | [更新履歴](CHANGELOG.md)

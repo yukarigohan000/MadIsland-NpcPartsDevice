@@ -2,14 +2,26 @@
 
 **A mod that adds a "Body Cultivation Capsule" for displaying, duplicating, and reviving NPC corpses and body parts.**
 
-[日本語](README.md) | [Download](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/latest) | [Changelog](CHANGELOG.md) | [Terms of Use](RIGHTS.md)
+[日本語](README.md) | [Download](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.10) | [Changelog](CHANGELOG.md) | [Terms of Use](RIGHTS.md)
 
-**Version:** v1.0.7  
+**Version:** v1.0.10  
 **Author:** yukarigohan
 
 NpcPartsDevice adds a new placeable device, the **Body Cultivation Capsule**, to Mad Island. You can display NPC corpses or body parts inside it and duplicate them using materials. It also offers **Revival Duplication**, which creates a living NPC from an eligible dead NPC.
 
 The included **CorpseCollector** plugin lets you pick up and carry certain NPC corpses that normally cannot be collected as inventory items.
+
+## Changes in v1.0.10
+
+- Fixed body-part duplication for NPC IDs 110 and 114 producing no finished item after the duplication animation.
+- Handled personality changes made by the game's native data restoration that caused clone validation to fail.
+
+### Body-part display improvements from v1.0.9
+
+- Fixed body-part display in normal, large, and extra-large capsules, improving preservation of the original size and shape.
+- Applied the working small-capsule corrections to supported body-part displays and improved their depth relationship with the glass.
+
+The new in-game checks cover these fixes. They do not revalidate every feature for all previously confirmed NPCs (21 IDs for display/normal duplication/revival and 12 IDs for corpse collection).
 
 ## Features
 
@@ -27,14 +39,14 @@ The included **CorpseCollector** plugin lets you pick up and carry certain NPC c
 
 - Windows version of Mad Island
 - **BepInEx 5.4.23.5 (BepInEx 5 series)**
-- [This mod's release ZIP](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/latest)
+- [This mod's release ZIP](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.10)
 
 The reference game version is Steam build **25095856**. Compatibility with other game versions, including later game updates, is not guaranteed. This mod is not for BepInEx 6 or IL2CPP.
 
 ### Steps
 
 1. Close the game and back up your save data as a precaution.
-2. Download the ZIP from [Releases](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/latest) and extract it.
+2. Download the ZIP from [Releases](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.10) and extract it.
 3. Copy the ZIP's `BepInEx` folder into your game directory, alongside `Mad Island.exe`.
 4. Start the game.
 
@@ -54,6 +66,10 @@ Mad Island/
 **Both DLLs are required.** Do not remove `CorpseCollector.dll`, even if you do not plan to use corpse collection. Other mods such as CheatMenu are not required.
 
 **Upgrading from older separate plugins:** Move the old, pre-integration NpcPartsDevice-related DLLs out of the `plugins` directory before installing this package. This includes the old NpcPartsDevice core, Bridge, Ui, Skin, Icons, Animation, NineSlots, Costs, Revive, and ModItemJapanese plugins. Do not load the old plugins together with the integrated version.
+
+### Updating an existing installation
+
+Close the game, keep a copy of the old DLL, and replace `BepInEx/plugins/NpcPartsDevice/NpcPartsDevice.dll` with v1.0.10 from this ZIP. Do not leave another old NpcPartsDevice.dll under a different plugins folder. The bundled CorpseCollector v0.3.0 is unchanged; an existing installation of that version may be kept. Both plugins remain required.
 
 ## 2. Crafting and placing the capsule
 
@@ -218,8 +234,8 @@ Saves containing mod-specific items or generated NPCs may no longer work correct
 - Redistribution requires prior permission from the author
 - Sharing links to the official release page: **Permitted**
 
-See [RIGHTS.md](RIGHTS.md) for the full terms. This is an unofficial Mad Island mod. Rights to the game itself and third-party assets or code remain with their respective owners.
+See [RIGHTS.md](RIGHTS.md) for the full terms. Rights to Mad Island and its in-game characters, images, audio, and other content belong to its developer, Emade Plus (いーめいどぷらす), and the respective rights holders. NpcPartsDevice is an independently created, unofficial mod and is not official content. The existing terms in RIGHTS.md apply to the mod's independently authored portions.
 
 ---
 
-[Download](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases) | [Changelog](CHANGELOG.md)
+[Download](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.10) | [Changelog](CHANGELOG.md)

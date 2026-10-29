@@ -1,5 +1,27 @@
 # 更新履歴 / Changelog
 
+## v1.0.10
+
+- ID110・114の部位パーツで、複製アニメーション終了後に完成品が生成されない問題を修正。
+- ゲーム標準のデータ復元による人格情報の変更で、複製検証が失敗するケースに対応。
+- Fixed body-part duplication for IDs 110 and 114 producing no finished item after the animation.
+- Preserved saved personality information when native data restoration would otherwise change it and fail clone validation.
+
+## v1.0.9
+
+- 通常・大型・超大型培養槽の部位パーツ表示を修正。
+- 元の部位パーツのサイズ・形状を保持する処理を改善。
+- ガラスとの描画前後関係を改善。
+- 小型で使用していた正常な補正処理を、対応する部位パーツ展示に共通適用。
+- Fixed body-part display in normal, large, and extra-large capsules.
+- Improved preservation of the source part's size and shape.
+- Improved the depth relationship with capsule glass.
+- Reused the working small-capsule corrections for supported body-part displays.
+
+ID16・17の部位展示とID110・114の部位複製はユーザー実機確認済みです。従来の21 ID／12 ID一覧の全機能を再検証したものではありません。CorpseCollector v0.3.0は変更していません。
+
+The user confirmed the part-display fixes for IDs 16/17 and part-duplication fixes for IDs 110/114 in game. This does not revalidate every feature across the previous 21-ID/12-ID lists. CorpseCollector v0.3.0 is unchanged.
+
 ## v1.0.7 Public release documentation
 
 - 作者名yukarigohanと独自利用条件を確定・反映。DLLと機能は変更していません。
