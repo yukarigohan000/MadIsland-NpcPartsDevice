@@ -1,5 +1,27 @@
 # 更新履歴 / Changelog
 
+## v1.0.11
+
+### 日本語
+
+- 起動時に特定DLLのSHA256完全一致を要求する過剰な制限を撤廃。
+- `Assembly.Location` が空の場合に、依存ファイルを取得できず初期化が停止する問題に対応。
+- ゲーム本体の登録・保存・復元に必要なAPIの互換性を確認する方式へ変更。
+- セーブ保護、複製トランザクション、ロールバックなどの必要な保護は維持。
+- BepInEx 5.4.21.0を基準に再ビルドし、5.4.23.5とのAPI互換性も静的検証。
+- BepInEx 5.4.23.5の開発用ゲームで実機確認済み。5.4.21.0は静的API互換性確認のみで実機未確認。その他の5.4.xは動作未確認。
+- CorpseCollector v0.3.0は変更なし。5.4.21.0ではバージョン警告が残る可能性あり。
+
+### English
+
+- Removed the overly strict startup requirement for specific DLLs to match exact SHA256 hashes.
+- Addressed initialization stopping when `Assembly.Location` is empty and the dependency file cannot be accessed.
+- Replaced file-hash checks with compatibility checks for the game APIs needed for registration, saving, and restoration.
+- Retained save protection, duplication transactions, rollback, and other necessary safeguards.
+- Rebuilt against BepInEx 5.4.21.0 and statically checked API compatibility with 5.4.23.5.
+- Tested in the development game with BepInEx 5.4.23.5. For 5.4.21.0, only static API compatibility has been checked; it has not been tested in game. Other 5.4.x versions have not been tested.
+- CorpseCollector v0.3.0 is unchanged and may still produce a version warning on 5.4.21.0.
+
 ## v1.0.10
 
 - ID110・114の部位パーツで、複製アニメーション終了後に完成品が生成されない問題を修正。
@@ -54,12 +76,12 @@ The user confirmed the part-display fixes for IDs 16/17 and part-duplication fix
 ## NpcPartsDevice 1.0.2（未導入候補 / undeployed candidate）
 
 - 登録済み死亡仲間の通常荷物と関係情報に関する互換処理を試作。現在の登録との厳密な照合を要求する設計は1.0.3で見直し。
-- Candidate support for registered deceased companions' ordinary belongings/relationships; its strict current-registration requirement was revised in1.0.3.
+- Candidate support for registered deceased companions' ordinary belongings/relationships; its strict current-registration requirement was revised in 1.0.3.
 
 ## NpcPartsDevice 1.0.1
 
 - NineSlots・Costs・ReviveのSave01限定を、標準スロットと世界の状態を使う共通判定へ変更。標準33枠XMLと既存機能は維持。
-- Replace the Save01-only feature gate with native slot/world-session validation, retaining the native33-slot XML and established features.
+- Replace the Save01-only feature gate with native slot/world-session validation, retaining the native 33-slot XML and established features.
 - 新規ゲーム・ロード・タイトル復帰の一時状態を管理し、保存先不明・失敗したロード等では停止。
 - Manage temporary state across new games, loads, and title transitions; stop on unknown destinations or failed loads.
 
@@ -73,14 +95,14 @@ The user confirmed the part-display fixes for IDs 16/17 and part-duplication fix
 ## 統合前からの主な機能 / Earlier integrated features
 
 - 人型39 IDの1〜5体蘇生、登録済み死亡仲間の新規ID、妊娠・欠損、ダルマ展示、6種類の固定腹部XY、ID44/144の既存深度補正。
-- Revival for39 humanoid IDs in batches of1–5, new IDs for revived registered companions, pregnancy/missing limbs, Daruma exhibits, six fixed belly offsets, and existing ID44/144 depth correction.
+- Revival for 39 humanoid IDs in batches of 1–5, new IDs for revived registered companions, pregnancy/missing limbs, Daruma exhibits, six fixed belly offsets, and existing ID44/144 depth correction.
 - 9枠UI、素材コスト、標準結合演出、4サイズ外装・アイコン・サイズ表示。
 - Nine-slot UI, material costs, native joining effects, and four-size exterior/icon/size-label support.
 
 ## CorpseCollector 0.3.0（本パックで変更なし / unchanged）
 
 - ID5・6・71・113・116・118・121の追加死体回収・再配置と標準保存。人魚死体パネルの食材化で魚肉4個を得る操作。
-- Collection/placement/native saving for corpse IDs5/6/71/113/116/118/121 and the mermaid corpse-panel action yielding four fish-meat items.
+- Collection/placement/native saving for corpse IDs 5/6/71/113/116/118/121 and the mermaid corpse-panel action yielding four fish-meat items.
 
 過去の履歴は確認できた主要項目の要約です。各機能の現在の制限と確認範囲はREADMEを参照してください。
 

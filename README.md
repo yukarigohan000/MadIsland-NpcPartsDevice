@@ -1,17 +1,25 @@
 # Mad Island — NpcPartsDevice
 
-**NPCの死体・パーツを展示、複製、蘇生できる「肉体培養槽」を追加するMOD**
+**NPCの死体・身体パーツの展示・複製と、対応する死亡NPCの蘇生複製ができる「肉体培養槽」を追加するMOD**
 
-[English](README_EN.md) | [ダウンロード](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.10) | [更新履歴](CHANGELOG.md) | [利用条件](RIGHTS.md)
+[English](README_EN.md) | [ダウンロード](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.11) | [更新履歴](CHANGELOG.md) | [利用条件](RIGHTS.md)
 
-**バージョン：** v1.0.10  
+**バージョン：** v1.0.11  
 **作者：** yukarigohan
 
 NpcPartsDeviceは、Mad Islandに新しい設備「肉体培養槽」を追加するMODです。NPCの死体や身体パーツを装置内に展示し、素材を使って複製できます。また、条件を満たす死亡NPCから生きたNPCを生成する「蘇生複製」にも対応しています。
 
 同梱の **CorpseCollector** は、通常では死体アイテムを回収できない一部NPCを持ち運べるようにします。
 
-## v1.0.10 更新内容
+## v1.0.11 更新内容
+
+- 起動時に特定DLLのSHA256完全一致を要求する過剰な制限を撤廃しました。
+- `Assembly.Location` が空の場合に、依存ファイルを取得できず初期化が停止する問題に対応しました。
+- ゲーム本体の登録・保存・復元に必要なAPIの互換性を確認する方式へ変更しました。
+- セーブ保護、複製トランザクション、ロールバックなどの必要な保護は維持しています。
+- BepInEx 5.4.21.0を基準に再ビルドし、5.4.23.5とのAPI互換性も静的検証しました。CorpseCollector v0.3.0は変更していません。
+
+### v1.0.10からの部位複製修正
 
 - ID110・114の部位パーツで、複製アニメーション終了後に完成品が生成されない問題を修正しました。
 - ゲーム標準のデータ復元処理が人格情報を変更して複製検証に失敗するケースに対応しました。
@@ -21,7 +29,7 @@ NpcPartsDeviceは、Mad Islandに新しい設備「肉体培養槽」を追加�
 - 通常・大型・超大型の部位パーツ表示を修正し、元のサイズ・形状を保持する処理を改善しました。
 - 小型で使用していた正常な補正処理を対応する部位展示へ共通適用し、ガラスとの前後関係を改善しました。
 
-今回の実機確認は上記の修正対象です。従来の確認済み一覧（展示・通常複製・蘇生：21 ID、死体回収：12 ID）の全機能を再検証したものではありません。
+v1.0.11はBepInEx 5.4.23.5の開発用ゲームで実機確認済みです。従来の確認済み一覧（展示・通常複製・蘇生：21 ID、死体回収：12 ID）の全機能を再検証したものではありません。
 
 ## 主な機能
 
@@ -38,16 +46,26 @@ NpcPartsDeviceは、Mad Islandに新しい設備「肉体培養槽」を追加�
 ### 必要なもの
 
 - Windows版 Mad Island
-- **BepInEx 5.4.23.5（BepInEx 5系）**
-- [本MODの配布ZIP](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.10)
+- **BepInEx 5.4系（版ごとの確認範囲は下記参照）**
+- [本MODの配布ZIP](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.11)
 
 確認基準のゲームは Steam build **25095856** です。ゲームの更新後など、異なる環境での動作は保証できません。BepInEx 6／IL2CPP向けではありません。
+
+### BepInExの互換性
+
+| バージョン | 確認状況 |
+|---|---|
+| 5.4.23.5 | v1.0.11を開発用ゲームで実機確認済み |
+| 5.4.21.0 | 静的API互換性確認済み、実機未確認 |
+| その他の5.4.x | 動作未確認 |
+
+必要なAPIが互換であれば起動できる設計ですが、BepInEx 5系すべての動作を保証するものではありません。報告者と同じ環境での完全な解決も未確認です。同梱のCorpseCollector v0.3.0は変更していないため、5.4.21.0ではBepInExのバージョン警告が残る可能性があります。バージョン警告と実際の初期化エラーは区別してください。
 
 ### インストール
 
 1. ゲームを終了し、念のためセーブデータをバックアップします。
-2. [Releases](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.10) から配布ZIPをダウンロードして展開します。
-3. ZIP内の `BepInEx` フォルダーを、`Mad Island.exe` があるゲームフォルダーにコピーします。
+2. [Releases](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.11) から配布ZIPをダウンロードして展開します。
+3. 配布ZIP内の `BepInEx` フォルダーを、`Mad Island.exe` があるインストール先へコピーしてください。更新時は `NpcPartsDevice.dll` を上書きしてください。
 4. ゲームを起動します。
 
 配置後の例：
@@ -69,7 +87,7 @@ Mad Island/
 
 ### 既存バージョンからの更新
 
-ゲームを終了し、旧DLLを保管してから、`BepInEx/plugins/NpcPartsDevice/NpcPartsDevice.dll`を本ZIPのv1.0.10で置き換えてください。別フォルダーに旧NpcPartsDevice.dllを残して二重に読み込ませないでください。同梱のCorpseCollector v0.3.0は変更していないため、同版を導入済みならそのまま使用できます。2本構成は引き続き必要です。
+ゲームを終了し、旧DLLを保管してから、`BepInEx/plugins/NpcPartsDevice/NpcPartsDevice.dll`を本ZIPのv1.0.11で置き換えてください。別フォルダーに旧NpcPartsDevice.dllを残して二重に読み込ませないでください。同梱のCorpseCollector v0.3.0は変更していないため、同版を導入済みならそのまま使用できます。2本構成は引き続き必要です。
 
 ## 2. 肉体培養槽の入手・設置
 
@@ -174,7 +192,7 @@ Mad Island/
 
 通常は死体アイテムを回収できない一部NPCを持ち運べます。実機確認済みの対象は上の表を参照してください。
 
-1. 対応するNPCの死亡した死体を調べます。
+1. 対応するNPCの死体を調べます。
 2. 死体パネルから運搬・回収の操作を行います。
 3. 回収した死体をインベントリで保持し、対応する培養槽の展示や複製に利用できます。
 
@@ -215,8 +233,8 @@ BepInEx 5の導入、2本のDLLの配置、旧個別版DLLの重複がないか�
 
 ## 9. アンインストール
 
-1. ゲームを終了します。
-2. 可能なら装置内の死体・素材・完成品を回収し、セーブをバックアップします。
+1. 可能なら、ゲーム内で装置から死体・素材・完成品を回収します。
+2. ゲームを終了し、セーブをバックアップします。
 3. `BepInEx/plugins/NpcPartsDevice` と `BepInEx/plugins/CorpseCollector` を `plugins` の外に退避します。
 
 MOD専用アイテムや生成NPCが残るセーブは、MODを外すと正常に使えない可能性があります。必要なら導入前のセーブへ戻してください。
@@ -236,4 +254,4 @@ MOD専用アイテムや生成NPCが残るセーブは、MODを外すと正常�
 
 ---
 
-[ダウンロード](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.10) | [更新履歴](CHANGELOG.md)
+[ダウンロード](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.11) | [更新履歴](CHANGELOG.md)
