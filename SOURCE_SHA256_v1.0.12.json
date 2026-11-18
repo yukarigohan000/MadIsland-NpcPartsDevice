@@ -1,0 +1,398 @@
+[
+  {
+    "path": "CorpseAudit.cs",
+    "sha256": "484a820f4dc146990ecfecf8cef19b9875c465b2ec1042d001ebac3f5f72ef52"
+  },
+  {
+    "path": "Integration.cs",
+    "sha256": "39d542aaea929ee3ae40e76b157db88b05fac28fb92d57f955b789c97058780d"
+  },
+  {
+    "path": "mod.json",
+    "sha256": "d1792e27c5c9b8e74ee9e0d5d87f21cee5614f7edda48880d0e3925a34e6a945"
+  },
+  {
+    "path": "Modules/ModItemJapanese/BrokenPartLabel.cs",
+    "sha256": "555ff137518a1f13e19c8cc60d09c0221142422379492ce8c841233b3d903243"
+  },
+  {
+    "path": "Modules/ModItemJapanese/JapaneseItems.cs",
+    "sha256": "878fea41c87fb3a0bf3e780972d4f02f6f62d069bd0fe9fc79a31d12349dd5ae"
+  },
+  {
+    "path": "Modules/ModItemJapanese/Plugin.cs",
+    "sha256": "90a0453b9b95f7ee2a30d1f5d2f1bcfc8a62f1d6b914871340a7bbe21ac9ec11"
+  },
+  {
+    "path": "Modules/ModItemJapanese/TextPatches.cs",
+    "sha256": "e4de0893e4b6b77f0faadc3d4f47731706f9b390101eba815bab464f7d95408b"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/CapsuleDisplayAdapter.cs",
+    "sha256": "2b298898ee51b9055e7ee040c9ccdbdcbfeae72bdbe8667be29f60b2755ae456"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/CapsuleHeadPose.cs",
+    "sha256": "719fb387eb0e06d48b6438e074775aec58759dadc03d8883ede61ef2b03a63d3"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/CapsuleSizing.cs",
+    "sha256": "e2e18a462e331a10f5727b59b254ff7d650217cbbe55c885e5a3609f76d2806f"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/CorpseFacePose.cs",
+    "sha256": "0e82d1a5a0ab948a6acc1835ad4ea3d16a253b8d619b494fdbb65876c8e7a8bd"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/CorpseRelationRules.cs",
+    "sha256": "b62a3c0e494697473c162b61a6a539b2190a09c99c7285453b4b9617829224e3"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/CorpseRestore.cs",
+    "sha256": "a5032d5b3eee4cf4591318d32a177a55c52d061af14598681554b6b0bd0642fb"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/CorpseSafety.cs",
+    "sha256": "6ccf14ee0c2c94a7a3b9e3a83c5de3ecc699d20a24171adc35dd89296e183fef"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/CorpseSourceData.cs",
+    "sha256": "d5b6a635550230b6ffe0475a6891254034296fbf20f47ef369ab68e5a9e802c8"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/DisplayDiagnostic.cs",
+    "sha256": "0d97a40a7599b070e429e3e94e4b9a61b0e3a5a7a514d6623e5bb2cf22dc2583"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/DisplayInterior.cs",
+    "sha256": "bc4dcdd1d4857f72ff4968e2e912cfe48cd9a640039215e294fa2611a5887668"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/DuplicationBatch.cs",
+    "sha256": "ed054a7d6cee0de775693a907c39847eab401365cb1b1320efaa30507964f7d6"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/DuplicationRuntime.cs",
+    "sha256": "ea5c236e093f57254beecc50de16ae4a0b42266d134ebf685e60c79dcb78448b"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/ExhibitRuntime.cs",
+    "sha256": "e0afccbd7e7c1850503d750e0af1326233d3d1ae169dc7d2726f441e85fcfc03"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/ExhibitState.cs",
+    "sha256": "34e9fb7fc72bab06701ca5cb377e36deca50f48c693a7fe87f0b5a2ad65f36c5"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/ExhibitVisual.cs",
+    "sha256": "dc17962c5de62108766dca6836d30158f849cab3c6f1256be596bf15b6678798"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/GameGiveAdapter.cs",
+    "sha256": "56943506184d54e7f9ed120dc5f4ad0f76dd9baa8669805cc0a823c54b1433b7"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/GiantHair.cs",
+    "sha256": "8accd68f8211e582f0de96a58f244012a2c7e1ef53f1d4bd3f16629115ac0acd"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/HeadDisplayData.cs",
+    "sha256": "2fe3a41ddbbf86ac5d177cd36dff79dceada0005934a5a379662daf3616e8ea8"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/PartDiagnosis.cs",
+    "sha256": "6cbb1e0a8b565fdd1f07efcf287b532c5933bd4c36694c53721deb448a4ed46b"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/PartFactory.cs",
+    "sha256": "f4a4d9c29b3924e18555a768239d873356be691595311f2577dd029a631d23b2"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/PartGui.cs",
+    "sha256": "9b135ea20d2fc71059cf7b3212149d9468ce6f54d98053183dbfdf1dd271e1c9"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/PartProduct.cs",
+    "sha256": "a0d13b4b1f909656b9bbf50924a8151ea1569e28f7a8d3cb2c0910188bf1fb29"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/Plugin.cs",
+    "sha256": "8d8e8bf492a0b36689507304eb844843daea75f46c892968ed445bac38c6dd08"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/Registration.cs",
+    "sha256": "887b49be68f7dd53c6ceaea767f11afbaf8c85d38b137d745b3d6976c35d94ee"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/Rules.cs",
+    "sha256": "e3f160420608208857bb7e9d1040b7aa937dfda387ff5d97c53947ecfb853132"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/SavedIdentity.cs",
+    "sha256": "e0c60570ed392604e1a7fbc103c555fb0486d323653bf208622ae3eed70e6d91"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/SingleGive.cs",
+    "sha256": "470a815bd233636419333b4e470b3268a949b97d6ff46c66d0c469b01ba8d317"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/SizeFit.cs",
+    "sha256": "697cea44a0a5a77bb0a39f298d06a6711c3803b5b0652bf98471995a954a1156"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/SlotImage.cs",
+    "sha256": "16d9770a5884c1ee055412844993788e40904187d9b9c044ffe5b7d3c0ebd448"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/StandPose.cs",
+    "sha256": "78c599f6e9c45261e7e2b82e912fb31e970b9004141b9e385d49de0859f4b476"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/StoragePolicy.cs",
+    "sha256": "4ba64008f051c34fd08871a16d2956661eb1b172b7fb598231766a859536b94b"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/StorageRuntime.cs",
+    "sha256": "ab6e1b69b9a44cc79fc98d5338bd0f97297ba85db415951aea7974e04fe2a8e5"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/StorageView.cs",
+    "sha256": "26db933808b8c9609b481e835ce7322b92dfd3a5b25966d5e958356a1a09be21"
+  },
+  {
+    "path": "Modules/NpcPartsDevice/TargetEligibility.cs",
+    "sha256": "89ea2420c1a3ab1b24b2bc4272d78b231d6c0d8e71c9fccf7ad6eaff0e3faa2c"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceAnimation/Api.cs",
+    "sha256": "64f5fc0aa87e93f5025bb4eeb21555db02bd85df35b3454063c21a2bc291418b"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceAnimation/DelayGate.cs",
+    "sha256": "1443527b82ce9cb3afd2ec12eae318d39def10fe3a4b4851efbdb152a336b42e"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceAnimation/Plugin.cs",
+    "sha256": "edf013b8b7a1cfbd2f1fa822d6a08d3ff4f1ce936cb71afa734bc22d731a3837"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceBridge/BridgePatches.cs",
+    "sha256": "2cbf2418db03215c69da1e574e9d44b9ccd73f87508c983938a7da91292a8927"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceBridge/ClassOne44.cs",
+    "sha256": "18bd0bb62492f45ee613c81591220b1ff4ec14db89e87e29bda72e162e523573"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceBridge/CorpsePayload.cs",
+    "sha256": "253c7fad182ccdf41d28e89e04aec507438431ba16f37c5d1cf8a33f432ef522"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceBridge/FixedCoordinates.cs",
+    "sha256": "2fa9d329b286654dc6d565fb88fc5de072d6044522229f4d315e3121359b9d2b"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceBridge/MermaidDepth.cs",
+    "sha256": "b746cc721568094940a936040fda92fb62ea2f9a859a84c87f799e4e74258f76"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceBridge/PayloadXml.cs",
+    "sha256": "febc0a92f445bd66ba337556f4a88987e164edd110ca90a239414ae43a9d98a5"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceBridge/Plugin.cs",
+    "sha256": "ecb9e0076963a0efdc38cd9f386e1a74a1304482237827e9ee550a71d3c4b093"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceBridge/TargetGuard.cs",
+    "sha256": "3805c0160daeafe66b80dafc53e8b5d4ea4582dc566a4b8dee7570cf20b7be5d"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceBridge/TuningRuntime.cs",
+    "sha256": "506c25d2eb1201233a25c015e6d418adc2c9f46a38e75db867bb64bdccec02f8"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceCosts/Api.cs",
+    "sha256": "948dba43aa553aa02847d541f4429a1c01f1d196ec90e2ff9000d727dfd51e39"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceCosts/CostRules.cs",
+    "sha256": "0625d09919452abb5308cd59acb541b0d57881a501fcd196f5fbc80d633a6baa"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceCosts/Plugin.cs",
+    "sha256": "fca880dcb31e51e2c716a5312b6e6d0709797d864908e5edf4197e839af5d3db"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceIcons/BadgeState.cs",
+    "sha256": "e7fc163545576e921b8a08e3137ae1b531f7630aabd22ff23ae7ab798948bfc9"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceIcons/IconOwnership.cs",
+    "sha256": "de0983ec5dd206b877b919ba968b58c92b7d8da415f8226afd1487699144e1a7"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceIcons/IconPalette.cs",
+    "sha256": "1d05c6701be0248454666d9a96c5c9ef75a51f53844cf1a64e7d0afbbd1c74c2"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceIcons/IconPixels.cs",
+    "sha256": "a4042691077b9c2b1138941d947cf7d69a7b9e2dcbc535a1c37ce43311b752eb"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceIcons/Plugin.cs",
+    "sha256": "194a15dbeb1f11947c2c266471ba7d6e57c43e9ecf938b784504e1ef43057f48"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceIcons/RuntimeIconSource.cs",
+    "sha256": "3df1952fe98258e61b11baa6a53937b69943d2d6f25fde7ac9b9d2256b0dbbc4"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceNineSlots/Api.cs",
+    "sha256": "0ad888afa0f35e4f1574f467326d9b796f4931206f9177476add6d6078fdfa2a"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceNineSlots/NinePolicy.cs",
+    "sha256": "5445fad845be8fab7d401360bec952ce5a2cbcf11e8a77ef2d453f0906291145"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceNineSlots/Plugin.cs",
+    "sha256": "98ddc513509c778a43a5ff4751d8d8a810974823dbaf2d6993110f83178d65ef"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/Api.cs",
+    "sha256": "cd7be247d2a2a6430c9ff99ed2d90ce623dfe1d60a6276df27075c58ccc55a68"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/DarumaExhibit.cs",
+    "sha256": "da8a864a5ac1b68052f199e844ac6ee9772e898d5990d7b31dc064ca64332302"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/DarumaGlass.cs",
+    "sha256": "781062874cea325720d45fd33378ed75c29a9ef2ae539f47f0124368325c4672"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/DarumaInventory.cs",
+    "sha256": "cd6ac810a21a64def87ae1c17b953be326f08fd7b72de23aea9b2ecd1955a99d"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/DarumaSupport.cs",
+    "sha256": "db8d82961b71191e6db233385ad901a40b8a35542e51c002b4e8cc602b74e0e1"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/FixedBelly.cs",
+    "sha256": "a71b2d3423cffb22e064e4193f4772e02b96bab334f4723ddfbf446008492d53"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/FriendRegistrationBatch.cs",
+    "sha256": "dca3d77fbf95e65545a989826f87dfa54eadef66530e5fbaf6d4bcb27ffffc52"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/FriendRoster.cs",
+    "sha256": "326e9406f7c803956b605d2bcf1a264714f08f1c5d24783f0b921e3bdeda3099"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/MilkBelly.cs",
+    "sha256": "99b6fed2f22b07dc4e20b6c1b1916e52577602cc9499b22347bb633783238af5"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/Plugin.cs",
+    "sha256": "655b622eaa1a17af0a0ed5a1009dfdf25bd791eae85fd3341826c3d4f3179cb6"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/Refusals.cs",
+    "sha256": "68ee05d350ebddc9eab0999be098c9607dc11586ccb1b42f1de457805204f624"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/ReviveBatch.cs",
+    "sha256": "12128048279c8a73f5fb4fbcbb3f5e6f2606551cdfe4a6980f9b25b364c6f201"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/ReviveRules.cs",
+    "sha256": "b277b3c48095093e621e807c20105ca3e2d477af1189b3f47db53f2ad0d42cb4"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/Spawn.cs",
+    "sha256": "713648bcd8c7071330cbc6d76af737203e4ac893f6a0d44c413dcdd558832689"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/SpecialRules.cs",
+    "sha256": "59cba0d03344eec98e86ec939b20cb837dd24c9663b84c395ea411ceda1d2635"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/SpecialStates.cs",
+    "sha256": "fa35e128b6804befff37e580824ba58c6d9d335fae70ef34ec12c85db3f2f239"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceRevive/SpeciesCatalog.cs",
+    "sha256": "3aa3e5741bae8bc0115b88df4e7bb58ffd712d934bb199a79e9303a5e58cc6d4"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceSkin/InstanceRegistry.cs",
+    "sha256": "78b473fb70778072caa04e89a6cb03b8fcc93ba79c6955c4f002c9e80377f78d"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceSkin/Plugin.cs",
+    "sha256": "f0ea4bbdd57279d3d6b63fc18d81179004c15af3221aed5183db1c56d77c8986"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceSkin/Scope.cs",
+    "sha256": "4195905a74cb407554385f97d0f4772d0020bfbc3a76b12a3869473c22d6c598"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceSkin/ShellLifetime.cs",
+    "sha256": "2db8c85ce9614de313fcbeecc1109502a9947c40f06d586d0b21fb42c9c682ea"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceSkin/TintCycle.cs",
+    "sha256": "a9abd6281985c4defcfc8d1ad624b96ee8f7347a6054fb8717acbfaedbcbb0c1"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceUi/DeviceMessages.cs",
+    "sha256": "e3fe882b2d436ef630e457d83f521c03ff6e90ca7b4bcd346332ff5d6b0ab322"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceUi/DeviceNames.cs",
+    "sha256": "df6e70343c9f48debd7e0a16ede6b5ebecc4c154fd4448cf0f354f3b19659b4c"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceUi/NativeInventoryUi.cs",
+    "sha256": "b63a7a734c25cb6f37a459954df8acd0297db45cf851f511fb6d9897023bb6ef"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceUi/NativeUiLayout.cs",
+    "sha256": "20700bb14ebbe7996614bf886a80da060f5d51aa6be4eb5acdda9d492fcd275a"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceUi/Plugin.cs",
+    "sha256": "13bc7c201f50f7c96ecd8e644d7c722c3bb0ab76eebdc58553abc98800e85aa8"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceUi/Runtime.cs",
+    "sha256": "695dd3fbd5173354a248784ae327355c5dd9050663d8d80bed66af74b9cc57a5"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceUi/SevenSlots.cs",
+    "sha256": "49d20224277aab1af8fec1e8ff0d85d828d7fff1d4b58174bc2750a1d2bb141f"
+  },
+  {
+    "path": "Modules/NpcPartsDeviceUi/Targets.cs",
+    "sha256": "a7d4c09c99e3db4585cadaf313b3447feb994563025488cadf18c3a22a1e59e0"
+  },
+  {
+    "path": "NpcPartsDevice.csproj",
+    "sha256": "6f754e5de4f171097cc111acacb976fc3abfcfbeab5621e0484beac2d00a0d1e"
+  },
+  {
+    "path": "RuntimeRequirements.cs",
+    "sha256": "4615806b250bc890b048be424d8941d97e4ecb522df3cef4cf85173ec08c2d82"
+  },
+  {
+    "path": "SaveSession.cs",
+    "sha256": "e9bdf2a8cbb6ae48ce15ecfc426f0949313d63e2f2a1e96da027ff44bc6d3112"
+  },
+  {
+    "path": "SaveSessionState.cs",
+    "sha256": "771914fe8d97780aaccca8d1c30b94be48005c495ed68a3cfc3478c103d3b284"
+  }
+]

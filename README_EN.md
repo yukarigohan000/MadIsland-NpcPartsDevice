@@ -2,34 +2,24 @@
 
 **A mod that adds a "Body Cultivation Capsule" for displaying and duplicating NPC corpses and body parts, and reviving eligible dead NPCs.**
 
-[日本語](README.md) | [Download](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.11) | [Changelog](CHANGELOG.md) | [Terms of Use](RIGHTS.md)
+[日本語](README.md) | [Download](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.12) | [Changelog](CHANGELOG.md) | [Terms of Use](RIGHTS.md)
 
-**Version:** v1.0.11  
+**Version:** v1.0.12
 **Author:** yukarigohan
 
 NpcPartsDevice adds a new placeable device, the **Body Cultivation Capsule**, to Mad Island. You can display NPC corpses or body parts inside it and duplicate them using materials. It also offers **Revival Duplication**, which creates a living NPC from an eligible dead NPC.
 
 The included **CorpseCollector** plugin lets you pick up and carry certain NPC corpses that normally cannot be collected as inventory items.
 
-## Changes in v1.0.11
+## Changes in v1.0.12
 
-- Removed the overly strict startup requirement for specific DLLs to match exact SHA256 hashes.
-- Addressed initialization stopping when `Assembly.Location` is empty and the dependency file cannot be accessed.
-- Replaced file-hash checks with compatibility checks for the game APIs needed for registration, saving, and restoration.
-- Retained save protection, duplication transactions, rollback, and other necessary safeguards.
-- Rebuilt against BepInEx 5.4.21.0 and statically checked API compatibility with 5.4.23.5. CorpseCollector v0.3.0 is unchanged.
-
-### Body-part duplication fixes from v1.0.10
-
-- Fixed body-part duplication for NPC IDs 110 and 114 producing no finished item after the duplication animation.
-- Handled personality changes made by the game's native data restoration that caused clone validation to fail.
-
-### Body-part display improvements from v1.0.9
-
-- Fixed body-part display in normal, large, and extra-large capsules, improving preservation of the original size and shape.
-- Applied the working small-capsule corrections to supported body-part displays and improved their depth relationship with the glass.
-
-v1.0.11 has been tested in the development game with BepInEx 5.4.23.5. This does not revalidate every feature for all previously confirmed NPCs (21 IDs for display/normal duplication/revival and 12 IDs for corpse collection).
+- Updated for Mad Island v0.6.0.4 beta / Steam Build 26719145: replaced two calls to removed `GetBloodSlots()` with `GetLayeredSlots("blood")`.
+- The user confirmed NPC corpse display, normal duplication, and revival duplication in the development game using diagnostics-r2. This does not revalidate every NPC ID, size, quantity, or save/load combination.
+- The life-orb concern was a quantity issue (1000 versus the stack limit of 999); no orb behavior was changed.
+- Retains bounded, deduplicated local diagnostics: numeric NPC IDs, devices, outcomes, state/material counts, loaded mod GUIDs/versions and related Harmony patch owners. NPC names, save contents and inventory lists are not logged. Exception reasons may appear; review logs before sharing. Logs are not bundled.
+- The distributed DLL is rebuilt and checked against diagnostics-r2 for identical method IL and contracts. Its hash differs to remove personal build paths. Behavior is unchanged; this exact rebuilt binary has not been retested in game. Existing `diagnostics-r2` / `validation pending` startup wording remains for identification.
+- Includes unchanged CorpseCollector v0.3.0. All consumed game API references resolve in both DLLs. Coexistence with Defeat H Plus / Multiple Birth is unverified. Backward compatibility with older game builds is not guaranteed.
+- Build: zero warnings/errors; 84 API/transaction checks plus 3 provenance checks and 16 lightweight display checks passed. These are not exhaustive Unity runtime tests.
 
 ## Features
 
@@ -47,15 +37,15 @@ v1.0.11 has been tested in the development game with BepInEx 5.4.23.5. This does
 
 - Windows version of Mad Island
 - **BepInEx 5.4.x (see the version-specific test status below)**
-- [This mod's release ZIP](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.11)
+- [This mod's release ZIP](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.12)
 
-The reference game version is Steam build **25095856**. Compatibility with other game versions, including later game updates, is not guaranteed. This mod is not for BepInEx 6 or IL2CPP.
+The reference game version is Steam build **26719145 (v0.6.0.4 beta)**. Compatibility with other game versions, including later game updates, is not guaranteed. This mod is not for BepInEx 6 or IL2CPP.
 
 ### BepInEx compatibility
 
 | Version | Test status |
 |---|---|
-| 5.4.23.5 | v1.0.11 tested in the development game |
+| 5.4.23.5 | v1.0.12 diagnostics-r2 confirmed by the user in the development game |
 | 5.4.21.0 | Static API compatibility checked; not tested in game |
 | Other 5.4.x versions | Not tested |
 
@@ -64,7 +54,7 @@ The mod is designed to start when the required APIs are compatible, but support 
 ### Steps
 
 1. Close the game and back up your save data as a precaution.
-2. Download the ZIP from [Releases](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.11) and extract it.
+2. Download the ZIP from [Releases](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.12) and extract it.
 3. Copy the release ZIP's `BepInEx` folder into your Mad Island installation directory, alongside `Mad Island.exe`. When updating, overwrite `NpcPartsDevice.dll`.
 4. Start the game.
 
@@ -87,7 +77,7 @@ Mad Island/
 
 ### Updating an existing installation
 
-Close the game, keep a copy of the old DLL, and replace `BepInEx/plugins/NpcPartsDevice/NpcPartsDevice.dll` with v1.0.11 from this ZIP. Do not leave another old NpcPartsDevice.dll under a different plugins folder. The bundled CorpseCollector v0.3.0 is unchanged; an existing installation of that version may be kept. Both plugins remain required.
+Close the game, keep a copy of the old DLL, and replace `BepInEx/plugins/NpcPartsDevice/NpcPartsDevice.dll` with v1.0.12 from this ZIP. Do not leave another old NpcPartsDevice.dll under a different plugins folder. The bundled CorpseCollector v0.3.0 is unchanged; an existing installation of that version may be kept. Both plugins remain required.
 
 ## 2. Crafting and placing the capsule
 
@@ -184,6 +174,8 @@ This table includes **only NPC IDs for which the author has reported successful 
 | 162 | Kana (カナ) | ✅ | ✅ | ✅ | ✅ |
 | 163 | Lulu (ルル) | ✅ | ✅ | ✅ | ✅ |
 
+The following is the cumulative result from older releases, not a full retest on v1.0.12 / the updated game.
+
 **In-game confirmed: 21 NPC IDs for each of display, normal duplication, and revival duplication; 12 NPC IDs for corpse collection.**
 
 These results confirm that the listed features succeeded for the listed NPC IDs in specific tests. They **do not guarantee every special state**, such as pregnancy or missing limbs, or compatibility after a game update.
@@ -218,19 +210,19 @@ If you encounter repeated save/load errors or unusual capsule behavior, avoid re
 
 ## 8. Frequently asked questions
 
-**Q. Why can't I find the capsule in the crafting menu?**  
+**Q. Why can't I find the capsule in the crafting menu?**
 Check Cassie's crafting category and whether you meet the requirements for the original Artificial Human Manufacturing Capsule.
 
-**Q. Why can't I put this NPC in the capsule?**  
+**Q. Why can't I put this NPC in the capsule?**
 Check whether the NPC is supported and whether the corpse or body part contains the necessary character data. Even a tested NPC ID may fail in certain special states.
 
-**Q. Why are Duplicate or Revival Duplication unavailable?**  
+**Q. Why are Duplicate or Revival Duplication unavailable?**
 Check the source item, required materials, all five empty output slots, selected quantity, and—when reviving—the NPC's death state and companion registration.
 
-**Q. Why does a duplicated or revived NPC have no items?**  
+**Q. Why does a duplicated or revived NPC have no items?**
 This is intentional. Newly generated NPCs do not inherit the original's inventory or equipment.
 
-**Q. Why doesn't the mod load?**  
+**Q. Why doesn't the mod load?**
 Check that BepInEx 5 is installed, both DLLs are in the correct folders, and no older separate plugins are loaded alongside the integrated version. A game update may also cause incompatibility.
 
 ## 9. Uninstallation
@@ -256,4 +248,4 @@ See [RIGHTS.md](RIGHTS.md) for the full terms. Rights to Mad Island and its in-g
 
 ---
 
-[Download](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.11) | [Changelog](CHANGELOG.md)
+[Download](https://github.com/yukarigohan000/MadIsland-NpcPartsDevice/releases/tag/v1.0.12) | [Changelog](CHANGELOG.md)

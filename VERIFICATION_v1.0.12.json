@@ -1,0 +1,21 @@
+{
+  "version": "1.0.12",
+  "game": "Mad Island v0.6.0.4 beta / Steam Build 26719145",
+  "gameAssemblySHA256": "153a467cc71a81eadc6e6b12db9e71637027c1b36ba0e9862df753fc3b799645",
+  "testedDiagnosticsR2SHA256": "7fabb29f9d38651ec1539d9d98a5197db41fdae9bd492d7a4a191ad99d56e89a",
+  "releaseDllSHA256": "3841a2c93d7dcb734704f4c587468856dfd3447d3be0ab2a3a401886f51201bc",
+  "corpseCollectorVersion": "0.3.0",
+  "corpseCollectorSHA256": "f742231867eec39aa7a6fe0cac8af41a21a18544fb2b6902b3fcc5219a667e9b",
+  "sourceManifestSHA256": "dfe790d0c58fdfebe77fcc8dbf532b9ea904ec895e1060f6c67a34c523b9bffb",
+  "sourceFilesUnchanged": 99,
+  "identicalMethodBodiesAndSignatures": 1463,
+  "buildWarnings": 0,
+  "buildErrors": 0,
+  "checksPassed": 87,
+  "displayChecksPassed": 16,
+  "unresolvedGameApiReferences": 0,
+  "harmonyTargetsPresent": 29,
+  "runtimeConfirmation": "User confirmed NPC corpse display, normal duplication, revival duplication with diagnostics-r2. Rebuilt release DLL not retested in game. Other mods and all size/state/save combinations not certified.",
+  "diagnostics": "Retained bounded local diagnostics; logs not included.",
+  "sourceDistribution": "Source hashes only; existing binary-only distribution policy retained."
+}
